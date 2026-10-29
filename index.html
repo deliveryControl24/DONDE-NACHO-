@@ -218,7 +218,8 @@ installBtn.addEventListener('click',async()=>{
  installHelp.hidden=false;
  if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;return}
  const ua=navigator.userAgent;
- if(/iPhone|iPad|iPod/i.test(ua))installHelp.textContent='En Safari: toca Compartir y elige “Agregar a pantalla de inicio”.';
+ if(location.protocol==='file:')installHelp.textContent='Esta copia abierta como archivo no se puede instalar. Abre la versión publicada en GitHub Pages (https://) y vuelve a tocar “Instalar app”.';
+ else if(/iPhone|iPad|iPod/i.test(ua))installHelp.textContent='En Safari: toca Compartir y elige “Agregar a pantalla de inicio”.';
  else if(navigator.brave)installHelp.textContent='En Brave: abre el menú ⋮ y elige “Guardar y compartir” → “Instalar Donde Nacho”.';
  else if(/Android/i.test(ua))installHelp.textContent='En Chrome: abre el menú ⋮ y toca “Instalar aplicación” o “Agregar a pantalla principal”.';
  else if(/Windows/i.test(ua))installHelp.textContent='En Edge o Chrome: abre el menú del navegador y elige “Instalar este sitio como una aplicación”.';
